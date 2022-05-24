@@ -39,7 +39,7 @@ PythonForm[x_Association] :=
       ] <> "}";
 PythonForm[Rational[a_, b_]] := PythonForm[a] <> "/" <> PythonForm[b];
 PythonForm[Times[a_, b_]] := PythonForm[a] <> " * " <> PythonForm[b];
-PythonForm[Plus[a_, b_]] := $L <> PythonForm[a] <> " + " <> PythonForm[b] <> $R;
+PythonForm[Plus[a_, b__]] := $L <> StringRiffle[Map[PythonForm, List[a, b]], " + "] <> $R;
 PythonForm[Power[a_, b_]] := $L <> PythonForm[a] <> $R <> "**" <> $L <> PythonForm[b] <> $R;
 PythonForm[Log[x__]] := $Numpy <> "log" <> $L <> PythonForm[x] <> $R;
 PythonForm[\[Pi]] := $Numpy <> "pi";
