@@ -1,0 +1,4 @@
+* PythonForm
+
+A small tool to parse Mathematica expressions into Python code. It is not yet
+completely general, and I plan to add to it as I use it.
